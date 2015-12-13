@@ -15,7 +15,7 @@ when you want to store some small ,insensitive and permanent information in your
 If you are not clear about the step 2 and 3, you can check react-native [official doc](https://facebook.github.io/react-native/docs/linking-libraries-ios.html#content) , follow the step 1 and 2 in the official doc.
 
 ## Usage
-In **object-c** and **swift**, you have to use specific method for specific type, like `setObject` and `stringForKey`. But in react-native, I believe that all you need is just `set` and `get`.
+In **objective-c** and **swift**, you have to use specific method for specific type, like `setObject` and `stringForKey`. But in **react-native**, I believe that all you need is just `set` and `get`.
 
 Every method supports `callback` and `promise`
 
