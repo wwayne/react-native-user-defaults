@@ -74,7 +74,7 @@ userDefaults.empty()
 
 1. No tests? I have tested all methods, I promise. I've checked other famous react-native components, they all don't have tests, I think we are all seeking a way of formal tests.
 2. Why not swift? I wrote this in swift at the beginning, but I find it's hard for others and even myself to integrate it into an existed project.
-3. Type bug? if you `set('key1', '12')`, then `get('key1')`, you will get `12`, not `'12'`, I don't take this as a bug so that we can use this component more convenient. If you don't so, tell me.
+3. Type bug? if you `set('key1', '12')`, then `get('key1')`, you will get `12`, not `'12'`, I don't take this as a bug so that we can use this component more conveniently. If you don't so, tell me.
 
 ## License
 MIT
