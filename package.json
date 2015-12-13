@@ -1,0 +1,34 @@
+{
+  "name": "react-native-user-defaults",
+  "version": "0.1.0",
+  "main": "UserDefaults.js",
+  "description": "ios UserDefaults used by react-native",
+  "author": "wwayne",
+  "scripts": {
+    "test": "standard ./lib/userDefaults.js",
+    "build": "./node_modules/.bin/babel lib/userDefaults.js > ./UserDefaults.js"
+  },
+  "homepage": "https://github.com/wwayne/react-native-user-defaults#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wwayne/react-native-user-defaults.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wwayne/react-native-user-defaults/issues"
+  },
+  "peerDependencies": {
+    "react-native": "^0.16.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^5.8.34",
+    "standard": "^5.4.1"
+  },
+  "keywords": [
+    "ios",
+    "react-native",
+    "swift",
+    "userdefaults"
+  ],
+  "license": "MIT"
+}
