@@ -1,75 +1,74 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});var _NativeModules=require(
+'use strict'
 
-'NativeModules');
+import React from 'react-native'
+const {
+  NativeModules: {
+    UserDefaults,
+  },
+} = React
 
-var userDefaults={
-set:function set(key,value,cb){
-var jsonValue=JSON.stringify(value);
-if(cb){
-_NativeModules.UserDefaults.setObject(key,jsonValue,function(err,data){
-if(err)return cb(new Error('Set fail for key: ' + key));
-cb(null,data);});
+const userDefaults = {
+  set: (key, value, suiteName, cb) => {
+    const jsonValue = JSON.stringify(value)
+    return new Promise((resolve, reject) => {
+      UserDefaults.setObject(key, jsonValue, suiteName, (err, data) => {
+        if (err) {
+          const error = new Error(`Set fail for key: ${key}`)
+          cb && cb(error)
+          reject(error)
+        } else {
+          cb && cb(null, data)
+          resolve(data)
+        }
+      })
+    });
+  },
 
-return;}
+  get: (key, suiteName, cb) => {
+    return new Promise((resolve, reject) => {
+      UserDefaults.getObject(key, suiteName, (err, data) => {
+        if (err) {
+          const error = new Error(`Get fail for key: ${key}`)
+          cb && cb(error)
+          reject(error)
+        } else {
+          const result = JSON.parse(data)
+          cb && cb(null, result)
+          resolve(result)
+        }
+      })
+    })
+  },
 
-return new Promise(function(resolve,reject){
-_NativeModules.UserDefaults.setObject(key,jsonValue,function(err,data){
-if(err)return reject(new Error('Set fail for key: ' + key));
-resolve(data);});});},
+  remove: (key, suiteName, cb) => {
+    return new Promise((resolve, reject) => {
+      UserDefaults.removeObject(key, suiteName, (err, data) => {
+        if (err) {
+          const error = new Error(`Remove fail for key: ${key}`)
+          cb && cb(error)
+          reject(error)
+        } else {
+          cb && cb(null, data)
+          resolve(data)
+        }
+      })
+    })
+  },
 
+  empty: (suiteName, cb) => {
+    return new Promise((resolve, reject) => {
+      UserDefaults.empty(suiteName, (err, data) => {
+        if (err) {
+          const error = new Error('Empty fail')
+          cb && cb(error)
+          reject(error)
+        } else {
+          cb && cb(null, data)
+          resolve(data)
+        }
+      })
+    })
+  }
+}
 
-
-
-get:function get(key,cb){
-if(cb){
-_NativeModules.UserDefaults.getObject(key,function(err,data){
-if(err)return cb(new Error('Get fail for key: ' + key));
-var result=JSON.parse(data);
-cb(null,result);});
-
-return;}
-
-return new Promise(function(resolve,reject){
-_NativeModules.UserDefaults.getObject(key,function(err,data){
-if(err)return reject(new Error('Get fail for key: ' + key));
-var result=JSON.parse(data);
-resolve(result);});});},
-
-
-
-
-remove:function remove(key,cb){
-if(cb){
-_NativeModules.UserDefaults.removeObject(key,function(err,data){
-if(err)return cb(new Error('Remove fail for key: ' + key));
-cb(null,data);});
-
-return;}
-
-return new Promise(function(resolve,reject){
-_NativeModules.UserDefaults.removeObject(key,function(err,data){
-if(err)return reject(new Error('Remove fail for key: ' + key));
-resolve(data);});});},
-
-
-
-
-empty:function empty(cb){
-if(cb){
-_NativeModules.UserDefaults.empty(function(err,data){
-if(err)return cb(new Error('Empty fail'));
-cb(null,data);});
-
-return;}
-
-return new Promise(function(resolve,reject){
-_NativeModules.UserDefaults.empty(function(err,data){
-if(err)return reject(new Error('Empty fail'));
-resolve(data);});});}};exports['default'] = 
-
-
-
-
-
-userDefaults;module.exports = exports['default'];
-
+export default userDefaults
