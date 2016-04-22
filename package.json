@@ -16,9 +16,7 @@
   "bugs": {
     "url": "https://github.com/wwayne/react-native-user-defaults/issues"
   },
-  "peerDependencies": {
-    "react-native": "^0.16.0"
-  },
+  "peerDependencies": {},
   "dependencies": {},
   "devDependencies": {
     "babel": "^5.8.34",
