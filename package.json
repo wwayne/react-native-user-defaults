@@ -1,6 +1,6 @@
 {
   "name": "react-native-user-defaults",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "main": "UserDefaults.js",
   "description": "ios UserDefaults used by react-native",
   "author": "wwayne",
