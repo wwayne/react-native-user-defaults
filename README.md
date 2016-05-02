@@ -25,13 +25,13 @@ import userDefaults from 'react-native-user-defaults'
 #### Set information for a key
 
 ```
-set({String}, {String, Number, Bool, Object, Array} [,callback])
+set({String}, {String, Number, Bool, Object, Array}, [,suiteName] [,callback])
 
 Example:
 userDefaults.set("key1", "valueIsString")
  .then(data => console.log(data))   // Save success
 
-userDefaults.set("key2", [1, true], (err, data) => {
+userDefaults.set("key2", [1, true], "group.com.company.app", (err, data) => {
  if(!err) console.log(data)         // Save success
 })
 ```
@@ -39,13 +39,13 @@ userDefaults.set("key2", [1, true], (err, data) => {
 #### Get information of a key
 
 ```
-get({String} [,callback])
+get({String} [,suiteName] [,callback])
 
 Example:
 userDefaults.get("key1")
  .then(data => console.log(data))   // value for the key1
 
-userDefaults.get("key2", (err, data) => {
+userDefaults.get("key2", "group.com.company.app", (err, data) => {
  if(!err) console.log(data)         // value for the key2
 })
 ```
@@ -53,7 +53,7 @@ userDefaults.get("key2", (err, data) => {
 #### Remove an item
 
 ```
-remove({String} [,callback])
+remove({String} [,suiteName] [,callback])
 
 Example:
 userDefaults.remove("key1")
@@ -63,7 +63,7 @@ userDefaults.remove("key1")
 #### Empty all items which are not default(APP default settings will be reserved)
 
 ```
-empty([callback])
+empty([suiteName] [,callback])
 
 Example:
 userDefaults.empty()
