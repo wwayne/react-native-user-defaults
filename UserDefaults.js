@@ -9,7 +9,7 @@ const {
 
 const userDefaults = {
   set: (key, value, suiteName, cb) => {
-    const jsonValue = JSON.stringify(value)
+    const jsonValue = typeof value === 'string' || typeof value === 'number' ? value : JSON.stringify(value)
     return new Promise((resolve, reject) => {
       UserDefaults.setObject(key, jsonValue, suiteName, (err, data) => {
         if (err) {
@@ -32,7 +32,7 @@ const userDefaults = {
           cb && cb(error)
           reject(error)
         } else {
-          const result = JSON.parse(data)
+          const result = typeof data === 'string' || typeof data === 'number' ? data : JSON.parse(data)
           cb && cb(null, result)
           resolve(result)
         }
